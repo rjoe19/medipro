@@ -10,9 +10,14 @@
 
    	<!-- Style sheet link -->
 	<link href="css/style.css" rel="stylesheet" media="all">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 	
 	<script src="bower_components/handlebars/handlebars.min.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/moment/moment.js "></script>
+	<script src="bower_components/chart.js/dist/Chart.js "></script>
+
 	<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 </head>
 <body>
@@ -20,65 +25,27 @@
 	<h2>This morning with breakfast you need to take</h2>
 
 	<div class="medication-list">
-		<div class="medicine">
-				<input type="checkbox" id="one"/>
-		  		<label for="one"></label>
-			<div>
-				<h4>1 Asprin Tablet</h4>
-				<p>Ethics Enteric Coated Asprin</p>
-			</div>
-		</div>
-
-		<div class="medicine">
-				<input type="checkbox" id="two"/>
-		  		<label for="two"></label>
-			<div>
-				<h4>1 Metformin Tablet</h4>
-				<p>Metcheck</p>
-			</div>
-		</div>
-
-		<div class="medicine">
-			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
-	  			<input type="checkbox" id="three"/>
-		  		<label for="three"></label>
-			<div>
-				<h4>1 Amlodipine Tablet</h4>
-				<p>Apo-Amlodipine</p>
-			</div>
-		</div>
-
-		<div class="medicine">
-			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
-	  			<input type="checkbox" id="four"/>
-		  		<label for="four"></label>
-			<div>
-				<h4>1 Losartan Tablet</h4>
-				<p>Cozaar</p>
-			</div>
-		</div>
-
-		<div class="medicine">
-			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
-	  			<input type="checkbox" id="five"/>
-		  		<label for="five"></label>
-			<div>
-				<h4>1 Venlafaxine Tablet</h4>
-				<p>Arrow Venlafaxine XR</p>
-			</div>
-		</div>
-
-		<div class="medicine">
-			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
-	  			<input type="checkbox" id="six"/>
-		  		<label for="six"></label>
-			<div>
-				<h4>1 Venlafaxine Tablet</h4>
-				<p>Arrow Venlafaxine XR</p>
-			</div>
-		</div>
+		<!-- Template rendered into here -->
 	</div>
 
+	<div id="adherence-render">
+		<h1>Adherence This Week</h1>
+		<p>Super adherant man sooo healthy</p>
+					<canvas id="adherence-chart"></canvas>
+
+	</div>
+
+	<footer>
+		<div id="list">
+			<i class="material-icons">list</i>
+			<h5>Checklist</h5>
+		</div>
+
+		<div id="adherence">
+			<i class="material-icons">trending_up</i>
+			<h5>Adherence</h5>
+		</div>
+	</footer>
 
 	<!-- Templates -->
 	<script id="entry-template" type="text/x-handlebars-template">
@@ -100,7 +67,7 @@
 			  		<label for="{{@index}}"></label>
 				<div>
 					<h4>{{name}}</h4>
-					<p>Ethics Enteric Coated Asprin</p>
+					<p>{{brandName}}</p>
 				</div>
 			</div>
 		{{/each}}

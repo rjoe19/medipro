@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 
 *{
 	box-sizing: border-box;
@@ -9,7 +9,15 @@ body{
 	padding: 20px;
 	font: 19px;
 	font-family: 'Roboto', sans-serif;
-	background-color: rgba(255, 255, 0, 0.21);
+	background-color: rgb(255, 238, 150);
+}
+
+h4, p{
+	font-size: 19px;
+}
+
+h1, h2{
+	font-weight: 300;
 }
 
 .medication-list{
@@ -57,4 +65,45 @@ input[type=checkbox] {
 
 .medicine div p{
 	margin: 0px;
+}
+
+footer{
+	width: calc(100% - 40px);
+	height: 70px;
+	border-top: 1px solid rgba(0,0,0,0.5);
+	padding-top: 10px;
+	position: fixed;
+	bottom: 0px;
+}
+
+footer div{
+	width: 50%;
+	height: 50px;
+	float: left;
+	text-align: center;
+}
+
+footer div h5{
+	margin-top: 0px;
+}
+
+#adherence-render{
+	position: fixed;
+	background-color: rgb(255, 238, 150);
+	width: 100%;
+	top: 0px;
+	padding: 20px;
+	min-height: 100%;
+	left: calc(100%);
+	transition: ease all 0.5s;
+}
+
+canvas {
+            width: 100% !important;
+            max-width: 800px;
+            height: auto !important;
+}
+
+#adherence-render.active{
+	left: 0px;
 }
