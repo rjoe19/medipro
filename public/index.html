@@ -15,8 +15,8 @@
 	
 	<script src="bower_components/handlebars/handlebars.min.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/moment/moment.js "></script>
-	<script src="bower_components/chart.js/dist/Chart.js "></script>
+	<script src="bower_components/moment/moment.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
 
 	<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 </head>
@@ -38,7 +38,30 @@
 	</div>
 
 	<div id="infoRender">
-		
+		<h1>What to ask about medicines...</h1>
+		<p><strong>What is this medicine for?</strong></p>
+		<p><strong>How many do</strong> I take?</p>
+		<p><strong>When</strong> and <strong>how</strong> do I take?</p>
+		<p><strong>How long </strong> will I need to use it for?</p>
+		<p>What should I do <strong>if I forget </strong> to take it?</p>
+		<p>Are there any <strong>side effects</strong> I should know about and <strong>what should I do</strong> if these happen to me?</p>
+		<p>Are there any foods, drinks, or other things I  <strong>should avoid</strong> while I'm taking this medicine?</p>
+		<hr>
+		<h1>Remember...</h1>
+		<p><strong>Always</strong> read the labels on your medicines before taking</p>
+		<p><strong>If you have any concerns</strong> about your medicines please talk to your health professional</p>
+		<p><strong>Make sure</strong> you do not run out of your regular medicines.</p>
+		<p><strong>Keep</strong> your medicines in a cool dry place - not in dirrect sunlight. Keep them out of reach of children.</p>
+		<p><strong>Keep</strong> medicines in their <strong>labeled containers.</strong></p>
+		<p><strong>Do not share</strong> medicines with other people.</p>
+		<p><strong>Dispose of old</strong> medicines medicines safely.</p>
+	</div>
+
+	<div id="summaryRender">
+		<h1>Name: Ngaio Smith</h1>
+		<p>03 Mar 1937 - 79 - Ex Smoker</p>
+		<p>NHI: ABC1234</p>
+		<div id="summaryYield"></div>
 	</div>
 
 	<footer>
@@ -53,12 +76,12 @@
 		</div>
 
 		<div id="info">
-			<i class="material-icons">trending_up</i>
+			<i class="material-icons">info</i>
 			<h5>Info</h5>
 		</div>
 
 		<div id="summary">
-			<i class="material-icons">trending_up</i>
+			<i class="material-icons">assignment</i>
 			<h5>Summary</h5>
 		</div>
 	</footer>
@@ -114,6 +137,48 @@
 				</div>
 			</div>
 		{{/each}}
+	</script>
+
+	<script id="summary-template" type="text/x-handlebars-template">
+			{{#each medications}}
+				<hr>
+				<div>
+					<p><strong>Generic Name</strong></br>
+						{{genericName}}
+					</p>
+					<p><strong>Brand Name</strong></br>
+						{{brandName}}
+					</p>
+					<p><strong>Whats Its for</strong></br>
+						{{whatsItsFor}}
+					</p>
+					<p><strong>Extra Info</strong></br>
+						{{extraInfo}}
+					</p>
+					<div class="calender">
+						<div class="day">
+							<p>Wake</p>
+							<h4>{{times.w}}</h4>
+						</div>
+						<div class="day">
+							<p>Break</p>
+							<h4>{{times.b}}</h4>
+						</div>
+						<div class="day">
+							<p>Lunch</p>
+							<h4>{{times.l}}</h4>
+						</div>
+						<div class="day">
+							<p>Dinner</p>
+							<h4>{{times.d}}</h4>
+						</div>
+						<div class="day">
+							<p>Bedtime</p>
+							<h4>{{times.bt}}</h4>
+						</div>
+					</div>
+				</div>
+			{{/each}}			
 	</script>
 
 	<script src="js/app.js"></script>

@@ -77,15 +77,24 @@ function handleTaken(el){
 $('#list').click(function(){
 	$('#adherence-render').removeClass('active');
 	$('#infoRender').removeClass('active');
+	$('#summaryRender').removeClass('active');
 });
 
 $('#adherence').click(function(){
 	$('#adherence-render').addClass('active');
 	$('#infoRender').removeClass('active');
+	$('#summaryRender').removeClass('active');
 });
 
 $('#info').click(function(){
 	$('#infoRender').addClass('active');
+	$('#adherence-render').removeClass('active');
+	$('#summaryRender').removeClass('active');
+})
+
+$('#summary').click(function(){
+	$('#summaryRender').addClass('active');
+	$('#infoRender').removeClass('active');
 	$('#adherence-render').removeClass('active');
 })
 
@@ -134,4 +143,9 @@ function render(){
 	        }
 	    }
 	});
+
+	var source = $('#summary-template').html();
+	var template = Handlebars.compile(source);
+	var html = template(data); 
+	$('#summaryYield').html(html);
 }
