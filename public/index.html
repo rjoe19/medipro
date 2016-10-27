@@ -1,37 +1,113 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
+	<title>ProMed</title>
+	<meta name="description" content="">
+	
+  	<!-- Responsive friendly viewport settings -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Medipro App</title>
-  <meta name="description" content="Medipro App">
-  <meta name="Medipro" content="Medical App.">
-
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-
-
+   	<!-- Style sheet link -->
+	<link href="css/style.css" rel="stylesheet" media="all">
+	
+	<script src="bower_components/handlebars/handlebars.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 </head>
-
 <body>
-  <h1 id="bigOne"></h1>
+	<h1>Hi Ngaio</h1>
+	<h3>This morning with breakfast you need to take</h3>
 
-  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAkMPKIfxCSg8aaCGz6Mq6AQYvtfAMufxM",
-      authDomain: "medipro-d5254.firebaseapp.com",
-      databaseURL: "https://medipro-d5254.firebaseio.com",
-      storageBucket: "medipro-d5254.appspot.com",
-      messagingSenderId: "195395633003"
-    };
-    firebase.initializeApp(config);
+	<div class="medication-list">
+		<div class="medicine">
+				<input type="checkbox" id="one"/>
+		  		<label for="one"></label>
+			<div>
+				<h4>1 Asprin Tablet</h4>
+				<p>Ethics Enteric Coated Asprin</p>
+			</div>
+		</div>
 
-    var bigOne = document.getElementById('bigOne');
-    var dbRef = firebase.database().ref().child('text');
-    dbRef.on('value', snap => bigOne.innerText = snap.val());
-  </script>
+		<div class="medicine">
+				<input type="checkbox" id="two"/>
+		  		<label for="two"></label>
+			<div>
+				<h4>1 Metformin Tablet</h4>
+				<p>Metcheck</p>
+			</div>
+		</div>
+
+		<div class="medicine">
+			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
+	  			<input type="checkbox" id="three"/>
+		  		<label for="three"></label>
+			<div>
+				<h4>1 Amlodipine Tablet</h4>
+				<p>Apo-Amlodipine</p>
+			</div>
+		</div>
+
+		<div class="medicine">
+			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
+	  			<input type="checkbox" id="four"/>
+		  		<label for="four"></label>
+			<div>
+				<h4>1 Losartan Tablet</h4>
+				<p>Cozaar</p>
+			</div>
+		</div>
+
+		<div class="medicine">
+			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
+	  			<input type="checkbox" id="five"/>
+		  		<label for="five"></label>
+			<div>
+				<h4>1 Venlafaxine Tablet</h4>
+				<p>Arrow Venlafaxine XR</p>
+			</div>
+		</div>
+
+		<div class="medicine">
+			<input type="checkbox" value="1" id="checkboxOneInput" name="" />
+	  			<input type="checkbox" id="six"/>
+		  		<label for="six"></label>
+			<div>
+				<h4>1 Venlafaxine Tablet</h4>
+				<p>Arrow Venlafaxine XR</p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Templates -->
+	<script id="entry-template" type="text/x-handlebars-template">
+	  <div class="entry">
+	    <h1>{{title}}</h1>
+	    <div class="body">
+	      {{body}}
+	    </div>
+	  </div>
+	</script>
+
+	<script id="medicine-template" type="text/x-handlebars-template">
+		{{this}}
+
+		{{#each medications}}
+			<div class="medicine">
+					<input type="checkbox" id="one"/>
+			  		<label for="one"></label>
+				<div>
+					<h4>{{name}}</h4>
+					<p>Ethics Enteric Coated Asprin</p>
+				</div>
+			</div>
+		{{/each}}
+	</script>
+	
+	<script src="js/app.js"></script>
+</body>
+
 
 </body>
 </html>
