@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0px;
+	padding: 20px;
+	font: 19px;
+	font-family: 'Roboto', sans-serif;
+	background-color: rgb(255, 238, 150);
+}
+
+h4, p{
+	font-size: 19px;
+}
+
+h1, h2{
+	font-weight: 300;
+}
+
+.medication-list{
+	width: 100%;
+	overflow: hidden;
+}
+
+.medicine{
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.medicine label{
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	float: left;
+	border-radius: 50px;
+	display: block;
+	background-color: rgba(0,0,0,0);
+	border:2px solid rgba(0,0,0,0.8);
+}
+
+.medicine input[type=checkbox]:checked + label {
+	background-color: rgba(0,0,0,0.8);
+}
+
+
+.medicine .titles{
+	float: left;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+.medicine .titles h4{
+	margin: 0px;
+}
+
+
+.medicine .titles p{
+	margin: 0px;
+}
+
+footer{
+	width: calc(100% - 40px);
+	height: 70px;
+	border-top: 1px solid rgba(0,0,0,0.5);
+	padding-top: 10px;
+	position: fixed;
+	bottom: 0px;
+	background-color: rgb(255, 238, 150);
+}
+
+footer div{
+	width: 25%;
+	height: 50px;
+	float: left;
+	text-align: center;
+}
+
+footer div h5{
+	margin-top: 0px;
+}
+
+#adherence-render, #infoRender{
+	position: fixed;
+	background-color: rgb(255, 238, 150);
+	width: 100%;
+	top: 0px;
+	padding: 20px;
+	min-height: 100%;
+	left: calc(100%);
+	transition: ease all 0.5s;
+}
+
+canvas {
+            width: 100% !important;
+            max-width: 800px;
+            height: auto !important;
+}
+
+#adherence-render.active, #infoRender.active{
+	left: 0px;
+}
+
+.dropdown{
+	width: 100%;
+	border-top: 1px solid rgba(0,0,0,0.2);
+	display: block;
+	float: left;
+	margin-top: 20px;
+	height: 0px;
+}
+
+.expand{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.dropdown.active{
+	height: auto;
+}
+
+.calender{
+	width: 100%;
+	border: 1px solid rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+
+.day{
+	width: 20%;
+	float: left;
+	border: 1px solid rgba(0,0,0,0.2);
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.day p{
+	font-size: 16px;
+	margin: 0;
+}
+
+.day h4{
+	margin: 0;
+}
+
+.big{
+	text-align: center;
+	width: 100%;
+	font-size: 50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}

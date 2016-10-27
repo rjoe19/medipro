@@ -1,37 +1,124 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
+	<title>ProMed</title>
+	<meta name="description" content="">
+	
+  	<!-- Responsive friendly viewport settings -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Medipro App</title>
-  <meta name="description" content="Medipro App">
-  <meta name="Medipro" content="Medical App.">
+   	<!-- Style sheet link -->
+	<link href="css/style.css" rel="stylesheet" media="all">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	
+	<script src="bower_components/handlebars/handlebars.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/moment/moment.js "></script>
+	<script src="bower_components/chart.js/dist/Chart.js "></script>
 
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-
-
+	<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 </head>
-
 <body>
-  <h1 id="bigOne"></h1>
+	<h1>Hi Ngaio,</h1>
+	<h2>This morning with breakfast you need to take</h2>
 
-  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAkMPKIfxCSg8aaCGz6Mq6AQYvtfAMufxM",
-      authDomain: "medipro-d5254.firebaseapp.com",
-      databaseURL: "https://medipro-d5254.firebaseio.com",
-      storageBucket: "medipro-d5254.appspot.com",
-      messagingSenderId: "195395633003"
-    };
-    firebase.initializeApp(config);
+	<div class="medication-list">
+		<!-- Template rendered into here -->
+	</div>
 
-    var bigOne = document.getElementById('bigOne');
-    var dbRef = firebase.database().ref().child('text');
-    dbRef.on('value', snap => bigOne.innerText = snap.val());
-  </script>
+	<div id="adherence-render">
+		<h1>Adherence This Week</h1>
+		<div class="big">
+			77%
+		</div>
+		<canvas id="adherence-chart"></canvas>
+
+	</div>
+
+	<div id="infoRender">
+		
+	</div>
+
+	<footer>
+		<div id="list">
+			<i class="material-icons">list</i>
+			<h5>Checklist</h5>
+		</div>
+
+		<div id="adherence">
+			<i class="material-icons">trending_up</i>
+			<h5>Adherence</h5>
+		</div>
+
+		<div id="info">
+			<i class="material-icons">trending_up</i>
+			<h5>Info</h5>
+		</div>
+
+		<div id="summary">
+			<i class="material-icons">trending_up</i>
+			<h5>Summary</h5>
+		</div>
+	</footer>
+
+	<!-- Templates -->
+
+	<script id="medicine-template" type="text/x-handlebars-template">
+		{{#each medications}}
+			<div class="medicine">
+					<input type="checkbox" id="{{@index}}" 
+						{{#if isTaken}} checked {{/if}}
+						onchange="handleTaken(this);"
+					/>
+			  		<label for="{{@index}}"></label>
+				<div class="titles">
+					<h4>{{dosage}} {{name}}</h4>
+					<p>{{brandName}}</p>
+					<i class="material-icons expand" onclick="expand(this);">expand_more</i>
+				</div>
+
+				<div class="dropdown">
+					<h4>{{genericName}}</h4>
+					<p>{{brandName}}</p>
+					<div class="calender">
+						<div class="day">
+							<p>Wake</p>
+							<h4>{{times.w}}</h4>
+						</div>
+						<div class="day">
+							<p>Break</p>
+							<h4>{{times.b}}</h4>
+						</div>
+						<div class="day">
+							<p>Lunch</p>
+							<h4>{{times.l}}</h4>
+						</div>
+						<div class="day">
+							<p>Dinner</p>
+							<h4>{{times.d}}</h4>
+						</div>
+						<div class="day">
+							<p>Bedtime</p>
+							<h4>{{times.bt}}</h4>
+						</div>
+					</div>
+					<p><strong>Whats it for</strong></br>
+						{{whatsItsFor}}
+					</p>
+
+					<p><strong>Extra Instructions</strong></br>
+						{{extraInfo}}
+					</p>
+				</div>
+			</div>
+		{{/each}}
+	</script>
+
+	<script src="js/app.js"></script>
+</body>
+
 
 </body>
 </html>
