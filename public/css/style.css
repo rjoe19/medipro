@@ -79,7 +79,7 @@ footer{
 }
 
 footer div{
-	width: 50%;
+	width: 33.33%;
 	height: 50px;
 	float: left;
 	text-align: center;
@@ -89,7 +89,7 @@ footer div h5{
 	margin-top: 0px;
 }
 
-#adherence-render{
+#adherence-render, #infoRender{
 	position: fixed;
 	background-color: rgb(255, 238, 150);
 	width: 100%;
@@ -106,7 +106,7 @@ canvas {
             height: auto !important;
 }
 
-#adherence-render.active{
+#adherence-render.active, #infoRender.active{
 	left: 0px;
 }
 
