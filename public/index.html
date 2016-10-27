@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Medipro App</title>
+  <meta name="description" content="Medipro App">
+  <meta name="Medipro" content="Medical App.">
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+
+</head>
+
+<body>
+  <h1 id="bigOne"></h1>
+
+  <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAkMPKIfxCSg8aaCGz6Mq6AQYvtfAMufxM",
+      authDomain: "medipro-d5254.firebaseapp.com",
+      databaseURL: "https://medipro-d5254.firebaseio.com",
+      storageBucket: "medipro-d5254.appspot.com",
+      messagingSenderId: "195395633003"
+    };
+    firebase.initializeApp(config);
+
+    var bigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+  </script>
+
+</body>
+</html>

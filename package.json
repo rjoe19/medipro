@@ -1,0 +1,29 @@
+{
+  "name": "medipro",
+  "version": "1.0.0",
+  "description": "App as part of the Snomed Hackathon in Wellington.  Basically an electronic version of the Yellow Card but much better!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjoe19/medipro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjoe19/medipro/issues"
+  },
+  "homepage": "https://github.com/rjoe19/medipro#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "firebase": "^3.5.2",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
