@@ -65,9 +65,44 @@
 						onchange="handleTaken(this);"
 					/>
 			  		<label for="{{@index}}"></label>
-				<div>
-					<h4>{{name}}</h4>
+				<div class="titles">
+					<h4>{{dosage}} {{name}}</h4>
 					<p>{{brandName}}</p>
+					<i class="material-icons expand" onclick="expand(this);">expand_more</i>
+				</div>
+
+				<div class="dropdown">
+					<h4>{{genericName}}</h4>
+					<p>{{brandName}}</p>
+					<div class="calender">
+						<div class="day">
+							<p>Wake</p>
+							<h4>{{times.w}}</h4>
+						</div>
+						<div class="day">
+							<p>Break</p>
+							<h4>{{times.b}}</h4>
+						</div>
+						<div class="day">
+							<p>Lunch</p>
+							<h4>{{times.l}}</h4>
+						</div>
+						<div class="day">
+							<p>Dinner</p>
+							<h4>{{times.d}}</h4>
+						</div>
+						<div class="day">
+							<p>Bedtime</p>
+							<h4>{{times.bt}}</h4>
+						</div>
+					</div>
+					<p><strong>Whats it for</strong></br>
+						{{whatsItsFor}}
+					</p>
+
+					<p><strong>Extra Instructions</strong></br>
+						{{extraInfo}}
+					</p>
 				</div>
 			</div>
 		{{/each}}

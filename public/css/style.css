@@ -30,6 +30,7 @@ h1, h2{
 	overflow: hidden;
 	padding-bottom: 20px;
 	padding-top: 20px;
+	position: relative;
 }
 
 input[type=checkbox] {
@@ -52,18 +53,18 @@ input[type=checkbox] {
 }
 
 
-.medicine div{
+.medicine .titles{
 	float: left;
 	padding-left: 20px;
 	padding-top: 5px;
 }
 
-.medicine div h4{
+.medicine .titles h4{
 	margin: 0px;
 }
 
 
-.medicine div p{
+.medicine .titles p{
 	margin: 0px;
 }
 
@@ -74,6 +75,7 @@ footer{
 	padding-top: 10px;
 	position: fixed;
 	bottom: 0px;
+	background-color: rgb(255, 238, 150);
 }
 
 footer div{
@@ -106,4 +108,47 @@ canvas {
 
 #adherence-render.active{
 	left: 0px;
+}
+
+.dropdown{
+	width: 100%;
+	border-top: 1px solid rgba(0,0,0,0.2);
+	display: block;
+	float: left;
+	margin-top: 20px;
+	height: 0px;
+}
+
+.expand{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.dropdown.active{
+	height: auto;
+}
+
+.calender{
+	width: 100%;
+	border: 1px solid rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+
+.day{
+	width: 20%;
+	float: left;
+	border: 1px solid rgba(0,0,0,0.2);
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.day p{
+	font-size: 16px;
+	margin: 0;
+}
+
+.day h4{
+	margin: 0;
 }

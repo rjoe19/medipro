@@ -23,11 +23,42 @@ function bootstrapData(){
 	firebase.database().ref('/').set({
 		name: 'Ngaio Smith',
 		medications:[
-		    {name: "Medicine Name", brandName:"Metchek", isTaken: false, times:{w:0,b:1,l:0,d:1,bt:0}},
-		    {name: "Medicine Name", brandName:"Metchek", isTaken: true, times:{w:0,b:1,l:0,d:1,bt:0}},
-		    {name: "Medicine Name", brandName:"Metchek", isTaken: false, times:{w:0,b:1,l:0,d:1,bt:0}},
-		    {name: "Medicine Name", brandName:"Metchek", isTaken: false, times:{w:0,b:1,l:0,d:1,bt:0}},
-		    {name: "Medicine Name", brandName:"Metchek", isTaken: false, times:{w:0,b:1,l:0,d:1,bt:0}},
+		    {dosage: 1,
+		    name: "Aspirin 100mg Tablet", 
+		    brandName:"Ethics Enteric Coated Aspirin",
+		    genericName: "Aspirin 100mg Enteric coated Tablets", 
+		    isTaken: false, 
+		    times:{w:0,b:1,l:0,d:0,bt:0},
+		    whatsItsFor: "Helps prevent stoke and heart attack",
+		    extraInfo: 'Swallow whole, take with food'},
+
+		    {dosage: 1,
+		    name: "Metformin 500mg Tablet", 
+		    brandName:"Metcheck",
+		    genericName: "Metformin hydrochloride 500mg Tablets", 
+		    isTaken: false, 
+		    times:{w:0,b:1,l:0,d:1,bt:0},
+		    whatsItsFor: "Diabetes",
+		    extraInfo: 'Take after food'},
+
+		    {dosage: 1,
+		    name: "Amlodipine 2.5mg Tablet", 
+		    brandName:"Apo-Amlodipine",
+		    genericName: "Amlodipine 2.5mg Tablets", 
+		    isTaken: false, 
+		    times:{w:0,b:1,l:0,d:0,bt:0},
+		    whatsItsFor: "For angina or blood pressure",
+		    extraInfo: ''},
+
+		    {dosage: 1,
+		    name: "Losartan 25mg Tablet", 
+		    brandName:"Cozaar",
+		    genericName: "Losartan potassium 25mg Tablets", 
+		    isTaken: false, 
+		    times:{w:0,b:1,l:0,d:0,bt:0},
+		    whatsItsFor: "For blood pressure and to help improve heart function",
+		    extraInfo: ''},
+		    
 		],
 
 		adherence:[100,100,80,50,100,100,100],
@@ -52,6 +83,13 @@ $('#list').click(function(){
 $('#adherence').click(function(){
 	$('#adherence-render').addClass('active');
 });
+
+function expand(el){
+	var element = $(el);
+	var elementArrays  = element.parent().siblings($('.dropdown'));
+	var dropdown = elementArrays[2];
+	$(dropdown).toggleClass('active');
+}
 
 
 function render(){
